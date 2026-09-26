@@ -1,6 +1,7 @@
 package com.product.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -14,7 +15,8 @@ public class SvcCategoryImp implements SvcCategory {
     private RepoCategory repoCategory;
 
     @Override
-    public List<Category> getCategories() {
-        return repoCategory.getCategories();
+    public ResponseEntity<List<Category>> getCategories() {
+        return ResponseEntity.ok(repoCategory.findAll());
     }
+
 }
