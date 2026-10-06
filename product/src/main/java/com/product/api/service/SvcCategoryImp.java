@@ -16,7 +16,11 @@ public class SvcCategoryImp implements SvcCategory {
 
     @Override
     public ResponseEntity<List<Category>> getCategories() {
-        return ResponseEntity.ok(repoCategory.findAll());
+        try {
+            return new ResponseEntity.ok(repoCategory.findAll());
+        } catch (DataAccessException e) {
+            throw new DBAccessException(e);
+        }
     }
 
 }
