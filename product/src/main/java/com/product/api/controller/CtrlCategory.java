@@ -48,28 +48,27 @@ public class CtrlCategory {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse> create(@RequestBody DtoCategoryIn in) {
-        svc.create(in);
-        return ResponseEntity.ok(new ApiResponse(HttpStatus.CREATED.value(), "La Categoría creada correctamente"));
+    public ResponseEntity<String> create(@Valid @RequestBody DtoCategoryIn in) {
+        return ResponseEntity.ok("La Categoría creada correctamente");
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse> update(@PathVariable Integer category_id, @Valid @RequestBody DtoCategoryIn in) {
+    public ResponseEntity<String> update(@PathVariable Integer category_id, @Valid @RequestBody DtoCategoryIn in) {
         svc.update(in, category_id);
-        return ResponseEntity.ok(new ApiResponse(HttpStatus.OK.value(), "La Categoría actualizada correctamente"));
+        return ResponseEntity.ok("La Categoría actualizada correctamente");
     }
 
     @PatchMapping("/{id}/enable")
-    public ResponseEntity<ApiResponse> enable(@PathVariable Integer category_id) {
+    public ResponseEntity<String> enable(@PathVariable Integer category_id) {
         svc.enable(category_id);
-        return ResponseEntity.ok(new ApiResponse(HttpStatus.OK.value(), "La Categoría habilitada correctamente"));
+        return ResponseEntity.ok("La Categoría habilitada correctamente");
     }
 
     @PatchMapping("/{id}/disable")
-    public ResponseEntity<ApiResponse> disable(@PathVariable Integer category_id) {
+    public ResponseEntity<String> disable(@PathVariable Integer category_id) {
         svc.disable(category_id);
         return ResponseEntity
-                .ok(new ApiResponse(HttpStatus.OK.value(), "La Categoría ha sido deshabilitada correctamente"));
+                .ok("La Categoría ha sido deshabilitada correctamente");
     }
 
 }
