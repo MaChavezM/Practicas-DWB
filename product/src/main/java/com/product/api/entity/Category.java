@@ -1,5 +1,7 @@
 package com.product.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +31,8 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
-    private Integer category_id;
+    @JsonProperty("category_id")
+    private Integer categoryId;
 
     /**
      * Constructor vacio.
@@ -49,7 +52,7 @@ public class Category {
         this.tag = tag;
         this.parentCategoryId = parentCategoryId;
         this.status = status;
-        this.category_id = category_id;
+        this.categoryId = category_id;
     }
 
     /**
@@ -73,8 +76,8 @@ public class Category {
         return status;
     }
 
-    public Integer getCategory_id() {
-        return category_id;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
     /**
@@ -99,8 +102,8 @@ public class Category {
         this.status = status;
     }
 
-    public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     /**
@@ -111,7 +114,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "{" + category_id + ", " + category + ", " + tag + ", " + parentCategoryId + ", " + status + "}";
+        return "{" + categoryId + ", " + category + ", " + tag + ", " + parentCategoryId + ", " + status + "}";
     }
 
 }
