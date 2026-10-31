@@ -2,16 +2,23 @@ package com.product.api.service;
 
 import java.util.List;
 
-<<<<<<< Updated upstream
-import org.springframework.http.ResponseEntity;
-
-=======
 import com.product.api.dto.in.DtoCategoryIn;
->>>>>>> Stashed changes
 import com.product.api.entity.Category;
 
 public interface SvcCategory {
 
-  public ResponseEntity<List<Category>> getCategories();
+  public List<Category> findAll();
+
+  public List<Category> findActive();
+
+  public List<Category> findChilds(Integer id);
+
+  public void create(DtoCategoryIn in);
+
+  public void update(DtoCategoryIn in, Integer category_id);
+
+  public void enable(Integer category_id);
+
+  public void disable(Integer category_id);
 
 }

@@ -10,28 +10,28 @@ public class DtoProductIn {
 
 	@JsonProperty("gtin")
 	@Pattern(regexp = "^\\+?\\d{13}$", message = "El gtin tiene un formato inválido")
-	@NotNull(message="El gtin es obligatorio")
+	@NotNull(message = "El gtin es obligatorio")
 	private String gtin;
-	
+
 	@JsonProperty("product")
-	@NotNull(message="El product es obligatorio")
+	@NotNull(message = "El product es obligatorio")
 	private String product;
-	
+
 	@JsonProperty("description")
-	@NotNull(message="El description es obligatorio")
+	@NotNull(message = "El description es obligatorio")
 	private String description;
-	
+
 	@JsonProperty("price")
 	@Min(value = 0)
-	@NotNull(message="El price es obligatorio")
+	@NotNull(message = "El price es obligatorio")
 	private Float price;
-	
+
 	@JsonProperty("stock")
-	@NotNull(message="El stock es obligatorio")
+	@NotNull(message = "El stock es obligatorio")
 	private Integer stock;
 
 	@JsonProperty("category_id")
-	@NotNull(message="El category_id es obligatorio")
+	@NotNull(message = "El category_id es obligatorio")
 	private Integer category_id;
 
 	public String getGtin() {
