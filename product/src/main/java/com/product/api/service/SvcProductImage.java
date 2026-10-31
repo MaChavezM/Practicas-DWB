@@ -1,0 +1,17 @@
+package com.product.api.service;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+import com.product.api.dto.in.DtoProductImageIn;
+import com.product.api.entity.ProductImage;
+
+public interface SvcProductImage {
+
+    public ResponseEntity<List<ProductImage>> getProductImages(Integer id);
+
+    public ResponseEntity<String> createProductImage(Integer id, DtoProductImageIn in);
+
+    public ResponseEntity<String> deleteProductImage(Integer id, Integer productImageId);
+}
